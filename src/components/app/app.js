@@ -13,13 +13,13 @@ const App = () => {
   const [todoTitle, setTodoTitle] = useState("");
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  useEffect(() => {
     let t = localStorage.getItem("todos") || [];
     setTodos(JSON.parse(t));
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = e => {
     if (e.key === "Enter") {
